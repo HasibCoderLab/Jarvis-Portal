@@ -1,0 +1,23 @@
+/* Add this in a style tag in the head of the HTML or in a separate CSS file */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+#response {
+    margin-top: 20px;
+    font-size: 18px;
+}
