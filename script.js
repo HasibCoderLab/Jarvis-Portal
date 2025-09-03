@@ -6,11 +6,11 @@
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
-recognition.onstart = function() {
+recognition.onstart = function () {
     console.log('🎙️ Voice recognition started...');
 };
 
-recognition.onresult = function(event) {
+recognition.onresult = function (event) {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript.toLowerCase();
     document.getElementById('userInput').value = transcript;
@@ -21,17 +21,17 @@ recognition.onresult = function(event) {
 const micWrap = document.querySelector('.mic'); // add class="mic" to Speak button or wrapper
 
 // Typing animation display
-function showTyping(){
+function showTyping() {
     const r = document.getElementById('response');
     r.innerHTML = `<div class="typing"><span></span><span></span><span></span></div>`;
 }
 
 // Main response function
-function respond(){
+function respond() {
     const userInput = document.getElementById('userInput').value.toLowerCase().trim();
     const responseDiv = document.getElementById('response');
 
-    if(!userInput){
+    if (!userInput) {
         responseDiv.innerText = "Try typing or speaking a command.";
         return;
     }
@@ -47,13 +47,15 @@ function respond(){
         } else if (userInput.includes('how are you')) {
             response = 'I am just a program, but I am functioning properly!';
         }
-            else if (userInput.includes('Who  are you')) {
-                response = 'I am just a Jarvis, Created By Hasib Hasan Sir';
-        }  else if (userInput.includes('whai is your name ')) {
-            response = 'I am just a program, My Name is Jarvis but I am functioning properly!';
+        else if (userInput.includes('who are you')) {
+            response = 'I am just a Jarvis, Created By Hasib Hasan Sir';
         }
+        else if (userInput.includes('what is your name')) {
+            response = 'I am Jarvis, a virtual assistant program!';
+        }
+
         else if (userInput.includes('time')) {
-            const currentTime = new Date().toLocaleTimeString('en-US', {timeZone: 'Asia/Dhaka'});
+            const currentTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dhaka' });
             response = `The current time is ${currentTime}.`;
         } else if (userInput.includes('open youtube')) {
             const searchQuery = userInput.split('open youtube ')[1] || '';
@@ -75,7 +77,7 @@ function respond(){
 }
 
 // Start voice recognition
-function startListening(){
+function startListening() {
     micWrap?.classList.add('pulse');  // add pulsing effect
     recognition.start();
     recognition.onend = () => micWrap?.classList.remove('pulse');
@@ -84,29 +86,29 @@ function startListening(){
 // ==========================
 // Keyboard Shortcuts
 // ==========================
-document.addEventListener("keydown", function(e){
+document.addEventListener("keydown", function (e) {
     const input = document.getElementById('userInput');
 
     // Enter = Ask Jarvis
-    if(e.key === "Enter"){
+    if (e.key === "Enter") {
         e.preventDefault();
         respond();
     }
 
     // Ctrl + / = focus input
-    if(e.ctrlKey && e.key === "/"){
+    if (e.ctrlKey && e.key === "/") {
         e.preventDefault();
         input.focus();
     }
 
     // Ctrl + M = start microphone
-    if(e.ctrlKey && (e.key === "m" || e.key === "M")){
+    if (e.ctrlKey && (e.key === "m" || e.key === "M")) {
         e.preventDefault();
         startListening();
     }
 
     // Esc = clear input
-    if(e.key === "Escape"){
+    if (e.key === "Escape") {
         input.value = "";
     }
 });
