@@ -170,4 +170,63 @@
     input#userInput{ width:230px; font-size:14px }
     h1{ font-size:1.8rem }
   }
+
+  /* ==========================
+   Social Links + Footer
+   ========================== */
+.social-links{
+    margin-top: 36px;
+    text-align:center;
+  }
+  .follow-title{
+    font-weight:600;
+    margin-bottom:12px;
+    font-size:16px;
+    color:var(--accent1);
+  }
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+  .links a{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:14px;
+    color:var(--text);
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .links a:hover{
+    transform:translateY(-3px);
+    box-shadow: var(--glow);
+  }
+  
+  /* Social icons */
+  .links a img{
+    width:18px;
+    height:18px;
+  }
+  
+  /* Footer */
+  footer{
+    margin-top:40px;
+    font-size:13px;
+    color:rgba(255,255,255,0.6);
+    text-align:center;
+  }
+  footer a{
+    color:var(--accent1);
+    text-decoration:none;
+    font-weight:500;
+  }
+  footer a:hover{
+    text-decoration:underline;
+  }
   
