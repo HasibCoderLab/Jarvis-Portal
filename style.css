@@ -1,23 +1,142 @@
-/* Add this in a style tag in the head of the HTML or in a separate CSS file */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-}
-
-input {
-    padding: 10px;
-    font-size: 16px;
-    width: 300px;
-}
-
-button {
-    padding: 10px;
-    font-size: 16px;
-    margin: 5px;
-}
-
-#response {
-    margin-top: 20px;
-    font-size: 18px;
-}
+/* style.css (replace or append) */
+:root{
+    --bg1:#0f172a;
+    --bg2:#0b3d91;
+    --accent:#22c1c3;
+    --text:#e6f0ff;
+    --card: rgba(255,255,255,0.03);
+  }
+  
+  *{box-sizing:border-box}
+  body{
+    font-family: Inter, Arial, sans-serif;
+    text-align:center;
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:48px 16px;
+    background: linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:var(--text);
+  }
+  
+  /* Header */
+  h1{
+    font-size:2rem;
+    margin-bottom:20px;
+    letter-spacing:0.6px;
+    text-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    transform: translateY(0);
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0)}
+   50%{transform:translateY(-6px)}
+  }
+  
+  /* Input area */
+  .input-wrap{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  input#userInput{
+    padding:12px 14px;
+    font-size:16px;
+    width:320px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color:var(--text);
+    outline:none;
+    transition: box-shadow .25s, transform .12s;
+    box-shadow: 0 6px 20px rgba(11,61,145,0.12);
+  }
+  input#userInput:focus{
+    box-shadow: 0 0 0 8px rgba(34,193,195,0.08);
+    transform: translateY(-2px);
+  }
+  
+  /* Buttons */
+  button{
+    padding:10px 14px;
+    font-size:15px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    background:linear-gradient(90deg,var(--accent), #1dbfbf);
+    color:#031424;
+    font-weight:600;
+    transition: transform .12s, box-shadow .12s, opacity .12s;
+    box-shadow: 0 6px 18px rgba(34,193,195,0.12);
+  }
+  button:active{ transform:scale(.98) }
+  button:hover{ transform:translateY(-3px); box-shadow: 0 12px 28px rgba(34,193,195,0.16) }
+  
+  /* Mic pulsing indicator */
+  .mic {
+    width:42px; height:42px; display:inline-grid; place-items:center;
+    border-radius:50%;
+    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    position:relative;
+    overflow:visible;
+  }
+  .mic.pulse::after{
+    content:"";
+    position:absolute;
+    inset: -6px;
+    border-radius:50%;
+    animation: pulse 1.6s infinite;
+    background: radial-gradient(circle, rgba(34,193,195,0.12), transparent 40%);
+  }
+  @keyframes pulse{
+    0%{ transform: scale(.8); opacity:.9 }
+    70%{ transform: scale(1.6); opacity:0 }
+    100%{ transform: scale(1.8); opacity:0 }
+  }
+  
+  /* response box */
+  #response{
+    margin-top:22px;
+    font-size:18px;
+    max-width:780px;
+    background:var(--card);
+    padding:18px;
+    border-radius:12px;
+    box-shadow: 0 12px 40px rgba(2,6,23,0.35);
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  /* typing dots */
+  .typing {
+    display:inline-flex;
+    gap:6px;
+  }
+  .typing span{
+    width:8px; height:8px; border-radius:999px;
+    background:var(--accent);
+    opacity:.85;
+    transform: translateY(0);
+    animation: typingDots 1s infinite;
+  }
+  .typing span:nth-child(2){ animation-delay:.12s }
+  .typing span:nth-child(3){ animation-delay:.24s }
+  @keyframes typingDots{
+    0%{ transform: translateY(0); opacity:.5 }
+    50%{ transform: translateY(-6px); opacity:1 }
+    100%{ transform: translateY(0); opacity:.5 }
+  }
+  
+  /* responsive */
+  @media (max-width:420px){
+    input#userInput{ width:220px; font-size:14px }
+    h1{ font-size:1.4rem }
+  }
+  
