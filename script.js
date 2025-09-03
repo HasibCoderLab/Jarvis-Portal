@@ -46,7 +46,13 @@ function respond(){
             response = 'Hello! How can I assist you today?';
         } else if (userInput.includes('how are you')) {
             response = 'I am just a program, but I am functioning properly!';
-        } else if (userInput.includes('time')) {
+        }
+            else if (userInput.includes('Who  are you')) {
+                response = 'I am just a Jarvis, Created By Hasib Hasan Sir';
+        }  else if (userInput.includes('whai is your name ')) {
+            response = 'I am just a program, My Name is Jarvis but I am functioning properly!';
+        }
+        else if (userInput.includes('time')) {
             const currentTime = new Date().toLocaleTimeString('en-US', {timeZone: 'Asia/Dhaka'});
             response = `The current time is ${currentTime}.`;
         } else if (userInput.includes('open youtube')) {
