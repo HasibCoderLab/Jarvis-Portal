@@ -21,14 +21,28 @@ It comes with a **futuristic glassmorphic UI**, **typing animation**, **mic puls
 ---
 
 ## 🔹 Screenshot
-![Jarvis AI Screenshot](screenshot.png)  
+![Jarvis AI Screenshot](Assets/Screenshots/screenshot1.png)  
 
 ---
-
+```
+📂 Project-Folder/
+│
+├── 📂 Assets/
+│   ├── 📂 Screenshots/
+│   │   ├── screenshot1.png
+│   │   └── screenshot2.png
+│   └── favicon.png   (বা favicon.ico)
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
 ## 🔹 How to Use
 1. Clone the repository:
    ```bash
    git clone https://github.com/HasibCoderLab/Jarvis-AI.git
+   ```
 Open index.html in your browser.
 
 Type or speak your command.
