@@ -12,6 +12,20 @@
     <button onclick="respond()">Ask Jarvis</button>
     <button onclick="startListening()">Speak</button>
     <div id="response"></div>
+    <!-- Keyboard Shortcut Guide Modal -->
+<div id="shortcutModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-2xl shadow-lg w-80">
+      <h2 class="text-xl font-bold mb-4">⌨ Keyboard Shortcuts</h2>
+      <ul class="space-y-2 text-sm">
+        <li><b>Enter </b> → Ask Jarvis</li>
+        <li><b>Ctrl + / </b> → Focus Input</li>
+        <li><b>Ctrl + M </b> → Start Microphone</li>
+        <li><b>Esc </b> → Clear Input</li>
+        
+      </ul>
+      <button onclick="toggleShortcutModal()" class="mt-4 px-3 py-1 bg-blue-500 text-white rounded-lg">Close</button>
+    </div>
+  </div>
 
     <script src="script.js"></script>
 </body>
